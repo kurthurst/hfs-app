@@ -1,0 +1,73 @@
+<ion-view view-title="Home">
+	<ion-content>
+		<div class="homepage-wrap">
+			<div class="recent-inventory">
+				<ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true">
+				  <ion-slide>
+				    <div class="box blue">
+				    	<img src="http://lorempixel.com/650/300/business" alt="">
+				    	<div class="details">
+				    		<h2>8235R</h2>
+				    		<ul>
+				    			<li>2012</li>
+				    			<li>1400 hours</li>
+				    			<li>$189,000</li>
+				    		</ul>
+				    		<button class="button button-small button-stable">More Info</button>
+				    	</div>
+				    </div>
+				  </ion-slide>
+				  <ion-slide>
+				    <div class="box yellow">
+				    	<img src="http://lorempixel.com/650/300/nature/" alt="">
+				    	<div class="details">
+				    		<h2>8245R</h2>
+				    		<ul>
+				    			<li>2012</li>
+				    			<li>1400 hours</li>
+				    			<li>$189,000</li>
+				    		</ul>
+				    		<button class="button button-small button-stable">More Info</button>
+				    	</div>
+				    </div>
+				  </ion-slide>
+				  <ion-slide>
+				    <div class="box pink">
+				    	<img src="http://lorempixel.com/650/300/technics" alt="">
+				    	<div class="details">
+				    		<h2>8260R</h2>
+				    		<ul>
+				    			<li>2012</li>
+				    			<li>1400 hours</li>
+				    			<li>$189,000</li>
+				    		</ul>
+				    		<button class="button button-small button-stable">More Info</button>
+				    	</div>
+				    </div>
+				  </ion-slide>
+				</ion-slide-box>
+			</div>
+			<div class="all-inventory-link">
+				<a href="#">View All Inventory</a>
+			</div>
+			<div class="blog-feed">
+				<header>
+					<h2>Blog Title</h2>
+					<button class="button button-dark button-small">All News</button>
+				</header>
+				<main>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vestibulum feugiat leo, quis congue tortor gravida et. Phasellus eleifend venenatis eros vel scelerisque. Donec eget est id leo interdum viverra nec interdum libero. </p>
+
+					<a href="#" class="button button-dark button-block button-small">Continue reading...</a>
+				</main>
+			</div>
+		</div>
+	</ion-content>
+	<div class="bottom-links">
+			<nav>
+				<a ui-sref="app.service"><i class="button button-icon icon ion-wrench"></i></a>
+				<a ui-sref="app.parts"><i class="button button-icon icon ion-android-cart"></i></a>
+				<a ui-sref="app.contact"><i class="button button-icon icon ion-android-mail"></i></a>
+			</nav>
+		</div>
+</ion-view>
