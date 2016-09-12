@@ -63,3 +63,14 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
   $scope.previousIndex = data.previousIndex;
 });
 });
+
+hfs.controller('BarcodeScannerController', function($scope, $cordovaBarcodeScanner){
+  $scope.scanBarcode = function(){
+    $cordovaBarcodeScanner.scan().then(function(imageData){
+      $scope.sn = imageData.text;
+      alert($scope.sn);
+    }, function(error){
+      console.log('An error occurred -> ' + error);
+    });
+  };
+});
