@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('hfs', ['ionic', 'hfs.controllers', 'ngCordova'])
+angular.module('hfs', ['ionic', 'hfs.controllers', 'ngCordova', 'ionic.cloud', 'angular.filter'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,7 +22,12 @@ angular.module('hfs', ['ionic', 'hfs.controllers', 'ngCordova'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicCloudProvider) {
+  $ionicCloudProvider.init({
+    "core": {
+      "app_id": "05b530fa"
+    }
+  });
   $stateProvider
 
     .state('app', {
@@ -50,6 +55,22 @@ angular.module('hfs', ['ionic', 'hfs.controllers', 'ngCordova'])
         }
       }
     })
+  .state('app.category', {
+    url: '/inventory/:category',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/category.html'
+      }
+    }
+  })
+  .state('app.model', {
+    url: '/inventory/:category/:model',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/model.html'
+      }
+    }
+  })
     .state('app.news', {
       url: '/news',
       views: {

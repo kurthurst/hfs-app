@@ -1,45 +1,17 @@
 <ion-view view-title="Home">
 	<ion-content>
 		<div class="homepage-wrap">
-			<div class="recent-inventory">
+			<div class="recent-inventory" data-ng-controller="SliderController">
 				<ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true">
-				  <ion-slide>
+				  <ion-slide collection-repeat="slide in inventorySlides">
 				    <div class="box blue">
-				    	<img src="http://lorempixel.com/650/300/business" alt="">
+				    	<img class="full-image" src="{{slide.image}}" alt="{{slide.id}}">
 				    	<div class="details">
-				    		<h2>8235R</h2>
+				    		<h2>{{slide.model}}</h2>
 				    		<ul>
-				    			<li>2012</li>
-				    			<li>1400 hours</li>
-				    			<li>$189,000</li>
-				    		</ul>
-				    		<button class="button button-small button-stable">More Info</button>
-				    	</div>
-				    </div>
-				  </ion-slide>
-				  <ion-slide>
-				    <div class="box yellow">
-				    	<img src="http://lorempixel.com/650/300/nature/" alt="">
-				    	<div class="details">
-				    		<h2>8245R</h2>
-				    		<ul>
-				    			<li>2012</li>
-				    			<li>1400 hours</li>
-				    			<li>$189,000</li>
-				    		</ul>
-				    		<button class="button button-small button-stable">More Info</button>
-				    	</div>
-				    </div>
-				  </ion-slide>
-				  <ion-slide>
-				    <div class="box pink">
-				    	<img src="http://lorempixel.com/650/300/technics" alt="">
-				    	<div class="details">
-				    		<h2>8260R</h2>
-				    		<ul>
-				    			<li>2012</li>
-				    			<li>1400 hours</li>
-				    			<li>$189,000</li>
+				    			<li>{{slide.year}}</li>
+				    			<li>{{slide.hours}} hours</li>
+				    			<li>{{slide.price}}</li>
 				    		</ul>
 				    		<button class="button button-small button-stable">More Info</button>
 				    	</div>

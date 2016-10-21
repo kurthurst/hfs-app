@@ -9907,6 +9907,9 @@ a.button {
     display: inline-block;
     color: #444; }
 
+.category-name {
+  text-transform: uppercase; }
+
 .article-summary-item img {
   float: left;
   margin-right: 15px; }

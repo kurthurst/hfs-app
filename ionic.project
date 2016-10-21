@@ -1,4 +1,14 @@
 {
   "name": "hfsApp",
-  "app_id": "05b530fa"
+  "app_id": "05b530fa",
+  "proxies": [
+  	{
+  	"path": "/api",
+  	"proxyUrl": "http://hurstfs.com/api"
+  	},
+  	{
+  	"path": "/pics",
+  	"proxyUrl": "http://hfsinventory.com/pics"
+  	}
+  ]
 }

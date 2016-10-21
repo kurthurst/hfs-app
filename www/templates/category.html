@@ -1,0 +1,10 @@
+<ion-view view-title="Browse Our Inventory">
+  <ion-content>
+    <ion-list data-ng-controller="InventoryCategoryController">
+    	<ion-item collection-repeat="item in categoryCounts" ui-sref="app.model({category:{{category}}, model:{{item.model | addDashes}}})">
+    	<span class="category-name">{{item.model | removeDashes}}</span>
+        <span class="badge badge-dark">{{item.count}}</span>
+    	</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

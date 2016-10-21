@@ -1,4 +1,4 @@
-var hfs = angular.module('hfs.controllers', []);
+var hfs = angular.module('hfs.controllers', ['ionic.cloud']);
 
 hfs.controller('AuthCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -73,4 +73,69 @@ hfs.controller('BarcodeScannerController', function($scope, $cordovaBarcodeScann
       console.log('An error occurred -> ' + error);
     });
   };
+});
+
+hfs.controller('SliderController', function($scope, $http){
+  $http({
+    method: 'GET',
+    url: 'api/?home-slider'
+  }).then(function success(res){
+    console.log(res.data);
+    $scope.inventorySlides = res.data;
+  }, function error(res){
+    console.log('error: ' + res)
+  });
+});
+
+// filter for removing dashes in category names
+
+hfs.filter('removeDashes', function() {
+  return function(item) {
+    return item.replace(/-/g, " ");
+  }
+});
+hfs.filter('addDashes', function() {
+  return function(item) {
+    return item.replace(/ /g, "-");
+  }
+});
+
+hfs.controller('InventoryCountsController', function($scope, $http){
+  $http({
+    method: 'GET',
+    url: 'api/?inventory-counts'
+  }).then(function success(res){
+    console.log(res.data);
+    $scope.inventoryCounts = res.data;
+  }, function error(res){
+    console.log('error: ' + res)
+  });
+});
+
+hfs.controller('InventoryCategoryController', function($scope, $http, $stateParams){
+  $scope.category = $stateParams.category;
+  $scope.url = 'api/?inventory-models/' + $scope.category; 
+  $http({
+    method: 'GET',
+    url: $scope.url
+  }).then(function success(res){
+    console.log(res.data);
+    $scope.categoryCounts = res.data;
+  }, function error(res){
+    console.log('error: ' + res)
+  });
+});
+hfs.controller('InventoryModelController', function($scope, $http, $stateParams){
+  $scope.model = $stateParams.model;
+  $scope.category = $stateParams.category;
+  $scope.url = 'api/?' + $scope.category + '/' + $scope.model; 
+  $http({
+    method: 'GET',
+    url: $scope.url
+  }).then(function success(res){
+    console.log(res.data);
+    $scope.modelList = res.data;
+  }, function error(res){
+    console.log('error: ' + res)
+  });
 });
